@@ -11,7 +11,7 @@ public class PilaDevoluciones {
         this.tope = null;
     }
 
-    // Método apilar (push): registra el ingreso de una devolución al almacén
+    // Método apilar 
     public void apilar(Producto producto) {
         NodoPila nuevo = new NodoPila(producto);
         if (tope == null) {
@@ -23,7 +23,7 @@ public class PilaDevoluciones {
         System.out.println("Devolución registrada: " + producto.getNombre());
     }
 
-    // Método desapilar (pop): procesa el último artículo devuelto (LIFO)
+    // Método desapilar
     public Producto desapilar() {
         if (tope == null) {
             System.out.println("No hay devoluciones pendientes.");
@@ -35,7 +35,7 @@ public class PilaDevoluciones {
         return producto;
     }
 
-    // Método accesar: consulta el último artículo devuelto sin retirarlo
+    // Método accesar: 
     public Producto accesar() {
         if (tope == null) {
             System.out.println("No hay devoluciones pendientes.");
@@ -44,12 +44,12 @@ public class PilaDevoluciones {
         return tope.getProducto();
     }
 
-    // Método pilaVacia: verifica si hay devoluciones pendientes
+    // Método pilaVacia: 
     public boolean pilaVacia() {
         return tope == null;
     }
 
-    // Método mostrarPila: lista todas las devoluciones pendientes de revisar
+    // Método mostrarPila: 
     public void mostrarPila() {
         if (tope == null) {
             System.out.println("No hay devoluciones registradas.");

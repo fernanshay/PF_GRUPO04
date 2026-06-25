@@ -1,12 +1,12 @@
 package modelo;
 
 // (Contiene un Producto y el puntero siguiente)
-public class NodoPila {
+public class cPila {
     private Producto producto;
-    private NodoPila sgte;
+    private cPila sgte;
 
     // Constructor:
-    public NodoPila(Producto producto) {
+    public cPila(Producto producto) {
         this.producto = producto;
         this.sgte = null;
     }
@@ -15,13 +15,16 @@ public class NodoPila {
     public Producto getProducto() {
         return producto;
     }
+
     public void setProducto(Producto producto) {
         this.producto = producto;
     }
-    public NodoPila getSgte() {
+
+    public cPila getSgte() {
         return sgte;
     }
-    public void setSgte(NodoPila sgte) {
+
+    public void setSgte(cPila sgte) {
         this.sgte = sgte;
     }
 }

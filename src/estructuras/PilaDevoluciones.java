@@ -1,10 +1,10 @@
 package estructuras;
 
 import modelo.Producto;
-import modelo.NodoPila;
+import modelo.cPila;
 
 public class PilaDevoluciones {
-    private NodoPila tope;
+    private cPila tope;
 
     // Constructor:
     public PilaDevoluciones() {
@@ -13,7 +13,7 @@ public class PilaDevoluciones {
 
     // Método apilar 
     public void apilar(Producto producto) {
-        NodoPila nuevo = new NodoPila(producto);
+        cPila nuevo = new cPila(producto);
         if (tope == null) {
             tope = nuevo;
         } else {
@@ -55,7 +55,7 @@ public class PilaDevoluciones {
             System.out.println("No hay devoluciones registradas.");
             return;
         }
-        NodoPila p = tope;
+        cPila p = tope;
         System.out.println("Devoluciones pendientes (última primero):");
         while (p != null) {
             System.out.println(p.getProducto().toString());

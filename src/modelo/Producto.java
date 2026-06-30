@@ -50,6 +50,6 @@ public class Producto {
     // Print producto como texto legible:
     @Override
     public String toString() {
-        return "[" + codigo + "]" + nombre + " - S/" + precio + " (Stock: " + stock + ")";
+        return "[" + codigo + "]" + nombre + " - S/" + precio + " (Stock: " + stock + ")" + " ||" ;
     }
 }

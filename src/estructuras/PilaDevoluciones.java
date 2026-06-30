@@ -11,7 +11,7 @@ public class PilaDevoluciones {
         this.tope = null;
     }
 
-    // Método apilar 
+    // Método apilar
     public void apilar(Producto producto) {
         cPila nuevo = new cPila(producto);
         if (tope == null) {
@@ -25,31 +25,38 @@ public class PilaDevoluciones {
 
     // Método desapilar
     public Producto desapilar() {
+        Producto producto = null;
+
         if (tope == null) {
             System.out.println("No hay devoluciones pendientes.");
-            return null;
+        } else {
+            producto = tope.getProducto();
+            tope = tope.getSgte();
+            System.out.println("Procesando devolución: " + producto.getNombre());
         }
-        Producto producto = tope.getProducto();
-        tope = tope.getSgte();
-        System.out.println("Procesando devolución: " + producto.getNombre());
+
         return producto;
     }
 
-    // Método accesar: 
+    // Método accesar:
     public Producto accesar() {
+        Producto producto = null;
+
         if (tope == null) {
             System.out.println("No hay devoluciones pendientes.");
-            return null;
+        } else {
+            producto = tope.getProducto();
         }
-        return tope.getProducto();
+
+        return producto;
     }
 
-    // Método pilaVacia: 
+    // Método pilaVacia:
     public boolean pilaVacia() {
         return tope == null;
     }
 
-    // Método mostrarPila: 
+    // Método mostrarPila:
     public void mostrarPila() {
         if (tope == null) {
             System.out.println("No hay devoluciones registradas.");

@@ -1,5 +1,4 @@
 package estructuras;
-
 import modelo.Producto;
 
 public class ArregloCatalogo {
@@ -17,13 +16,12 @@ public class ArregloCatalogo {
         String codigo = normalizarCodigo(nProducto.getCodigo());
         boolean insertado = false;
 
-        if (codigo != null && !existeProducto(codigo) && cantidad < catalogo.length) {
+        if (codigo != null && existeProducto(codigo) == false && cantidad < catalogo.length) { // Conndiciones: Verifica que el código no esté vacío, no se repita y que aún exista espacio disponible en catalogo
             nProducto.setCodigo(codigo);
             catalogo[cantidad] = nProducto;
             cantidad++;
             insertado = true;
         }
-
         return insertado;
     }
 

@@ -1,6 +1,7 @@
 package gui;
 
 import estructuras.cLES;
+import modelo.DatosPrecargados;
 import modelo.Producto;
 
 import javax.swing.BorderFactory;
@@ -98,6 +99,7 @@ public class PanelCarrito extends JPanel {
         btnEliminar.addActionListener(e -> eliminarProductoSeleccionado());
         btnLimpiar.addActionListener(e -> limpiarFormulario());
 
+        cargarDatosPrecargados();
         actualizarTabla();
     }
 
@@ -260,5 +262,14 @@ public class PanelCarrito extends JPanel {
         }
 
         return codigo;
+    }
+
+    // Carga productos de ejemplo en el carrito con cantidad inicial de 1.
+    private void cargarDatosPrecargados() {
+        Producto[] productos = DatosPrecargados.obtenerProductosBase();
+
+        for (Producto producto : productos) {
+            carrito.insertarAlCarrito(producto, 1);
+        }
     }
 }

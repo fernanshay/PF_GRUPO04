@@ -1,18 +1,21 @@
 package modelo;
 
-// Contiene un Producto, la prioridad y el puntero 'siguiente'
-
+// Nodo de una cola priorizada de despacho.
 public class NodoCola {
     private Producto producto;
-    private cNodo sgte;
+    private int cantidad;
+    private int prioridad;
+    private NodoCola sgte;
 
-    // Constructor:
-    public cNodo(Producto producto) {
+    // Constructor.
+    public NodoCola(Producto producto, int cantidad, int prioridad) {
         this.producto = producto;
+        this.cantidad = cantidad;
+        this.prioridad = prioridad;
         this.sgte = null;
     }
 
-    // Getters y Setters:
+    // Getters y setters.
     public Producto getProducto() {
         return producto;
     }
@@ -21,11 +24,37 @@ public class NodoCola {
         this.producto = producto;
     }
 
-    public cNodo getSgte() {
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public int getPrioridad() {
+        return prioridad;
+    }
+
+    public void setPrioridad(int prioridad) {
+        this.prioridad = prioridad;
+    }
+
+    public NodoCola getSgte() {
         return sgte;
     }
 
-    public void setSgte(cNodo sgte) {
+    public void setSgte(NodoCola sgte) {
         this.sgte = sgte;
-    }    
+    }
+
+    public double getSubtotal() {
+        double subtotal = 0.0;
+
+        if (producto != null) {
+            subtotal = producto.getPrecio() * cantidad;
+        }
+
+        return subtotal;
+    }
 }

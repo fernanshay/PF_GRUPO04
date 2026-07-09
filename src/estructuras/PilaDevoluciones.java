@@ -3,6 +3,9 @@ package estructuras;
 import modelo.Producto;
 import modelo.cPila;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PilaDevoluciones {
     private cPila tope;
 
@@ -49,6 +52,49 @@ public class PilaDevoluciones {
         }
 
         return producto;
+    }
+
+    // Devuelve una representación tabular de la pila, desde el tope hacia abajo.
+    public Object[][] obtenerFilas() {
+        List<Object[]> filas = new ArrayList<>();
+        cPila actual = tope;
+
+        while (actual != null) {
+            Producto producto = actual.getProducto();
+            filas.add(new Object[] {
+                    producto != null ? producto.getCodigo() : "",
+                    producto != null ? producto.getNombre() : "",
+                    producto != null ? producto.getPrecio() : 0.0,
+                    producto != null ? producto.getStock() : 0
+            });
+            actual = actual.getSgte();
+        }
+
+        return filas.toArray(new Object[0][]);
+    }
+
+    // Indica cuántas devoluciones están pendientes.
+    public int contarDevoluciones() {
+        int cantidad = 0;
+        cPila actual = tope;
+
+        while (actual != null) {
+            cantidad++;
+            actual = actual.getSgte();
+        }
+
+        return cantidad;
+    }
+
+    // Describe el tope actual para la interfaz gráfica.
+    public String describirTope() {
+        String texto = "No hay devoluciones pendientes.";
+
+        if (tope != null && tope.getProducto() != null) {
+            texto = "Tope actual: " + tope.getProducto().toString();
+        }
+
+        return texto;
     }
 
     // Método pilaVacia:

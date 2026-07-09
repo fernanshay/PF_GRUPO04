@@ -5,6 +5,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 
 import estructuras.ArregloCatalogo;
+import modelo.DatosPrecargados;
 import modelo.Producto;
 
 // Panel Swing para administrar el catálogo de productos.
@@ -82,6 +83,9 @@ public class PanelCatalogo extends JPanel {
         panelFormulario.add(btnActualizar);
 
         btnActualizar.addActionListener(e -> actualizarProductoSeleccionado());
+
+        cargarDatosPrecargados();
+        actualizarTabla();
     }
 
     // Agrega un producto nuevo al catálogo.
@@ -277,5 +281,14 @@ public class PanelCatalogo extends JPanel {
         campoCodigo.setEditable(true);
         campoNombre.setEditable(true);
         codigoSeleccionado = null;
+    }
+
+    // Carga productos de ejemplo
+    private void cargarDatosPrecargados() {
+        Producto[] productos = DatosPrecargados.obtenerProductosBase();
+
+        for (Producto producto : productos) {
+            catalogo.insertarProducto(producto);
+        }
     }
 }

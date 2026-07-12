@@ -102,31 +102,4 @@ public class cCola {
 
         return filas.toArray(new Object[0][]);
     }
-
-    // Devuelve un texto legible con el contenido de la cola.
-    public String mostrarCola() {
-        StringBuilder texto = new StringBuilder();
-        NodoCola actual = frente;
-
-        if (actual == null) {
-            texto.append("No hay pedidos en despacho.");
-        } else {
-            while (actual != null) {
-                Producto producto = actual.getProducto();
-                texto.append("[Prioridad ").append(actual.getPrioridad()).append("] ");
-
-                if (producto != null) {
-                    texto.append(producto.getCodigo()).append(" - ").append(producto.getNombre());
-                }
-
-                texto.append(" x").append(actual.getCantidad())
-                        .append(" => S/ ")
-                        .append(String.format(java.util.Locale.US, "%.2f", actual.getSubtotal()))
-                        .append(System.lineSeparator());
-                actual = actual.getSgte();
-            }
-        }
-
-        return texto.toString();
-    }
 }

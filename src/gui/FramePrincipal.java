@@ -21,11 +21,11 @@ public class FramePrincipal extends JFrame {
 
         JTabbedPane pestanas = new JTabbedPane();
 
-        pestanas.addTab("Catálogo", new PanelCatalogo());
-        pestanas.addTab("Carrito", new PanelCarrito(carrito));
-        pestanas.addTab("Despacho", new PanelDespacho());
-        pestanas.addTab("Devoluciones", new PanelDevoluciones());
-        pestanas.addTab("Búsqueda", new PanelBusqueda());
+        pestanas.addTab("Catálogo (Arreglos)", new PanelCatalogo());
+        pestanas.addTab("Carrito (LE)", new PanelCarrito(carrito));
+        pestanas.addTab("Despacho (Cola)", new PanelDespacho());
+        pestanas.addTab("Devoluciones (Pilas)", new PanelDevoluciones());
+        pestanas.addTab("Búsqueda (ABB)", new PanelBusqueda());
 
         add(pestanas);
     }

@@ -31,6 +31,7 @@ public class ArregloCatalogo {
         return existe;
     }
 
+    // Método para quitar espacios innecesarios
     private String normalizarCodigo(String codigo) {
         String codigoNormalizado = null;
 
@@ -42,23 +43,24 @@ public class ArregloCatalogo {
                 codigoNormalizado = null;
             }
         }
-
         return codigoNormalizado;
     }
 
     private int buscarPosicionProducto(String codigo) {
         String codigoNormalizado = normalizarCodigo(codigo);
         int posicion = -1;
-
+        
         if (codigoNormalizado != null) {
-            for (int i = 0; i < cantidad; i++) {
-                if (catalogo[i].getCodigo().equals(codigoNormalizado)) {
-                    posicion = i;
-                    break;
-                }
+            int i = 0;
+            
+            while (i < cantidad && !catalogo[i].getCodigo().equals(codigoNormalizado)) {
+                i++;
+            }
+
+            if (i < cantidad) {
+                posicion = i;
             }
         }
-
         return posicion;
     }
 

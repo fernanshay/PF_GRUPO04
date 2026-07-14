@@ -20,7 +20,7 @@ public class cCola {
         return frente == null;
     }
 
-    // Inserta un pedido respetando la prioridad: 1 es la más alta.
+    // Inserta un pedido respetando la prioridad: 1 es la más alta. 
     public boolean encolar(Producto producto, int cantidad, int prioridad) {
         boolean insertado = false;
 
@@ -31,7 +31,7 @@ public class cCola {
 
             if (estaVacia()) {
                 frente = nuevo;
-            } else if (prioridad < frente.getPrioridad()) {
+            } else if (prioridad < frente.getPrioridad()) { // NOTA: Evaluar prioridad. Puede que lo mejor sea considerar solo el principio de la cola: First In - First Out
                 nuevo.setSgte(frente);
                 frente = nuevo;
             } else {

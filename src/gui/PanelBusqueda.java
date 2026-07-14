@@ -219,9 +219,9 @@ public class PanelBusqueda extends JPanel {
             areaResultado.setText("El árbol está vacío.");
         } else {
             String texto = "=== RECORRIDOS DEL ÁRBOL ABB ===\n\n"
-                    + "PreOrden:\n" + arbol.muestra(1) + "\n\n"
-                    + "InOrden (alfabético):\n" + arbol.muestra(2) + "\n\n"
-                    + "PostOrden:\n" + arbol.muestra(3);
+                    + "PreOrden:\n" + arbol.muestra(1) + "\n\n"// Modificar título. Por ejemplo: "Raíz, izq., der. (Pre-orden)"
+                    + "InOrden:\n" + arbol.muestra(2) + "\n\n" // Modificar título. Por ejemplo: "De menor a mayor (In-orden)"
+                    + "PostOrden:\n" + arbol.muestra(3); // Modificar título: Por ejemplo: "Izq., der., raíz (Porst-orden)"
             areaResultado.setText(texto);
         }
     }

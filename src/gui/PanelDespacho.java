@@ -115,6 +115,11 @@ public class PanelDespacho extends JPanel {
                         "Código y producto no pueden estar vacíos.",
                         "Datos inválidos",
                         JOptionPane.ERROR_MESSAGE);
+            } else if (colaDespacho.existeProducto(codigo)) {
+                JOptionPane.showMessageDialog(this,
+                        "Ya existe un pedido en cola con ese código.",
+                        "Código duplicado",
+                        JOptionPane.WARNING_MESSAGE);
             } else if (precio < 0 || cantidad <= 0) {
                 JOptionPane.showMessageDialog(this,
                         "Precio debe ser mayor o igual a 0 y cantidad mayor que 0.",
@@ -200,7 +205,9 @@ public class PanelDespacho extends JPanel {
 
         for (int i = 0; i < productos.length; i++) {
             int prioridad = (i % 3) + 1;
-            colaDespacho.encolar(productos[i], 1, prioridad);
+            if (!colaDespacho.existeProducto(productos[i].getCodigo())) {
+                colaDespacho.encolar(productos[i], 1, prioridad);
+            }
         }
     }
 }

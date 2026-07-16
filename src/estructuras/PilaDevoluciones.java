@@ -23,21 +23,16 @@ public class PilaDevoluciones {
             nuevo.setSgte(tope);
             tope = nuevo;
         }
-        System.out.println("Devolución registrada: " + producto.getNombre());
     }
 
     // Método desapilar
     public Producto desapilar() {
         Producto producto = null;
 
-        if (tope == null) {
-            System.out.println("No hay devoluciones pendientes.");
-        } else {
+        if (tope != null) {
             producto = tope.getProducto();
             tope = tope.getSgte();
-            System.out.println("Procesando devolución: " + producto.getNombre());
         }
-
         return producto;
     }
 
@@ -45,12 +40,9 @@ public class PilaDevoluciones {
     public Producto accesar() {
         Producto producto = null;
 
-        if (tope == null) {
-            System.out.println("No hay devoluciones pendientes.");
-        } else {
-            producto = tope.getProducto();
+        if (tope != null) {
+           producto = tope.getProducto();
         }
-
         return producto;
     }
 
@@ -118,14 +110,8 @@ public class PilaDevoluciones {
 
     // Método mostrarPila:
     public void mostrarPila() {
-        if (tope == null) {
-            System.out.println("No hay devoluciones registradas.");
-            return;
-        }
         cPila p = tope;
-        System.out.println("Devoluciones pendientes (última primero):");
         while (p != null) {
-            System.out.println(p.getProducto().toString());
             p = p.getSgte();
         }
     }

@@ -64,18 +64,6 @@ public class ArregloCatalogo {
         return posicion;
     }
 
-    // Método para mostrar datos del arreglo:
-    public void mostrarArreglo() {
-        if (cantidad == 0) {
-            System.out.println("No tiene productos registrados.");
-            return;
-        }
-
-        for (int i = 0; i < cantidad; i++) {
-            System.out.println((i + 1) + ". " + catalogo[i]);
-        }
-    }
-
     public Producto[] obtenerTodos() {
         Producto[] copia = new Producto[cantidad];
         for (int i = 0; i < cantidad; i++) {

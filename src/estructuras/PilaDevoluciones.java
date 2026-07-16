@@ -56,22 +56,36 @@ public class PilaDevoluciones {
 
     // Devuelve una representación tabular de la pila, desde el tope hacia abajo.
     public Object[][] obtenerFilas() {
-        List<Object[]> filas = new ArrayList<>();
-        cPila actual = tope;
+    List<Object[]> filas = new ArrayList<>();
+    cPila actual = tope;
 
-        while (actual != null) {
-            Producto producto = actual.getProducto();
-            filas.add(new Object[] {
-                    producto != null ? producto.getCodigo() : "",
-                    producto != null ? producto.getNombre() : "",
-                    producto != null ? producto.getPrecio() : 0.0,
-                    producto != null ? producto.getStock() : 0
-            });
-            actual = actual.getSgte();
+    while (actual != null) {
+        Producto producto = actual.getProducto();
+
+        String codigo;
+        String nombre;
+        double precio;
+        int stock;
+
+        if (producto != null) {
+            codigo = producto.getCodigo();
+            nombre = producto.getNombre();
+            precio = producto.getPrecio();
+            stock = producto.getStock();
+        } else {
+            codigo = "";
+            nombre = "";
+            precio = 0.0;
+            stock = 0;
         }
 
-        return filas.toArray(new Object[0][]);
+        filas.add(new Object[] { codigo, nombre, precio, stock });
+
+        actual = actual.getSgte();
     }
+
+    return filas.toArray(new Object[0][]);
+}
 
     // Indica cuántas devoluciones están pendientes.
     public int contarDevoluciones() {
